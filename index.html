@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="manifest" href="/manifest.json" />
+
+    <script src="localforage.min.js"></script>
+
+    <title>Календарь</title>
+
+    <style>
+      #sizes {
+        position: absolute;top: 0;left: 0;
+      }
+
+      header {
+        /* border: 1px solid black; */
+      }
+      main {
+        /* border: 1px solid black; */
+      }
+      footer {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="sizes" type="button">Get sizes body</button>
+    <div class="container">
+      <header class="month-title-wrapper">
+        <h2 class="month-title">
+          <span class="month-title__month">Июнь</span>
+          <span class="month-title__year">2023</span>
+        </h2>
+        <button type="button" class="prev-month-button"></button>
+        <button type="button" class="next-month-button"></button>
+      </header>
+      <main>
+        <div class="days-of-week-wrapper">
+          <div class="day-of-week--week">Пт</div>
+          <div class="day-of-week--week">Вт</div>
+          <div class="day-of-week--week">Ср</div>
+          <div class="day-of-week--week">Чт</div>
+          <div class="day-of-week--week">Пт</div>
+          <div class="day-of-week--week">Сб</div>
+          <div class="day-of-week--week">Вс</div>
+        </div>
+
+        <div class="days-of-month-wrapper">
+          <!-- <div class="week-of-month-wrapper"> -->
+            <div class="day-of-week day-of-week--previous-month">
+              <span class="day-of-week--day">29</span>
+            </div>
+            <div class="day-of-week day-of-week--previous-month">
+              <span class="day-of-week--day">30</span>
+            </div>
+            <div class="day-of-week day-of-week--previous-month">
+              <span class="day-of-week--day">31</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">01</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">02</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">03</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">04</span>
+            </div>
+          <!-- </div> -->
+
+          <!-- <div class="week-of-month-wrapper"> -->
+            <div class="day-of-week">
+              <span class="day-of-week--day">05</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">06</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">07</span>
+            </div>
+            <!-- <div class="day-of-week day-of-week--selected-day"> -->
+            <div class="day-of-week">
+              <span class="day-of-week--day">08</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">09</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">10</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">11</span>
+            </div>
+          <!-- </div> -->
+
+          <!-- <div class="week-of-month-wrapper"> -->
+            <div class="day-of-week">
+              <span class="day-of-week--day">12</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">13</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">14</span>
+            </div>
+            <div class="day-of-week day-of-week--current-day">
+              <span class="day-of-week--day">15</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">16</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">17</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">18</span>
+            </div>
+          <!-- </div> -->
+
+          <!-- <div class="week-of-month-wrapper"> -->
+            <div class="day-of-week">
+              <span class="day-of-week--day">19</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">20</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">21</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">22</span>
+              <span class="task-text-span-wrapper">12:00</span>
+              <span class="task-text-span-wrapper">apple</span>
+              <span class="task-text-span-wrapper">le</span>
+              <span class="task-text-span-wrapper">le</span>
+              <span class="task-text-span-wrapper">0:11</span>
+              <span class="task-text-span-wrapper">0:11</span>
+              <span class="task-text-span-wrapper">0:11</span>
+              <span class="task-text-span-wrapper">0:11</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">23</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">24</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">25</span>
+            </div>
+          <!-- </div> -->
+
+          <!-- <div class="week-of-month-wrapper"> -->
+            <div class="day-of-week">
+              <span class="day-of-week--day">26</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">27</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">28</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">29</span>
+            </div>
+            <div class="day-of-week">
+              <span class="day-of-week--day">30</span>
+            </div>
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">01</span>
+            </div>
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">02</span>
+            </div>
+          <!-- </div> -->
+
+          <!-- <div class="week-of-month-wrapper"> -->
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">03</span>
+            </div>
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">04</span>
+            </div>
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">05</span>
+            </div>
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">06</span>
+            </div>
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">07</span>
+            </div>
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">08</span>
+            </div>
+            <div class="day-of-week day-of-week--next-month">
+              <span class="day-of-week--day">09</span>
+            </div>
+          <!-- </div> -->
+        </div>
+      </main>
+      <footer>
+        <header>
+          <div class="show-selected-day-in-footer-wrapper">08 июня 2023</div>
+          <ul class="task-list">
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+            <!-- <li class="task-item">Зарядка</li> -->
+          </ul>
+          <button class="add-task-button" type="button"></button>
+          <!-- <button type="button" class="close-footer-button">X</button>
+          <div class="show-selected-day-in-footer-wrapper"></div>
+          <button type="button" class="add-task-button">Добавить</button> -->
+        </header>
+      </footer>
+    </div>
+    <div class="overlay">
+      <button class="close-overlay-button" type="button"></button>
+      <input class="input-field" type="text" />
+      <button class="save-task-button" type="button">OK</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

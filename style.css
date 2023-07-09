@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  max-height: 100%;
+  font-family: "El Messiri", sans-serif;
+}
+body {
+  background-color: #6fbedc;
+  color: #fff;
+}
+
+header {
+  height: 92px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  position: relative;
+  height: 286px;
+  display: flex;
+  padding-top: 60px;
+  padding-left: 14px;
+  background-color: #fff;
+
+  overflow-y: auto;
+
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.show-selected-day-in-footer-wrapper {
+  position: absolute;
+  bottom: 235px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1e3460;
+}
+
+.add-task-button {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  /* background-color: #6fbedc; */
+  background-color: #f87072;
+  border: 0;
+  border-radius: 18px;
+  background-image: url("./images/plus.svg");
+  background-repeat: no-repeat;
+}
+
+.add-task-button:active {
+  background-color: #1e3460;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-item {
+  padding-left: 23px;
+  background-image: url("./images/dropdown.svg");
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  /* color: #545d66; */
+  color: #1e3460;
+
+  height: 30px;
+}
+
+.task-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.task-item:hover {
+  background-color: red;
+}
+
+.month-title-wrapper {
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.month-title {
+  margin-right: auto;
+  margin-bottom: 20px;
+  font-size: 30px;
+  /* background-color: red; */
+}
+
+.prev-month-button,
+.next-month-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 0;
+  background-image: url("images/arrow-up.svg");
+  background-size: 18px 18px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.prev-month-button {
+  margin-right: 10px;
+  transform: rotate(-90deg);
+}
+
+.next-month-button {
+  transform: rotate(90deg);
+}
+
+.prev-month-button:active,
+.next-month-button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.days-of-week-wrapper {
+  margin-bottom: 26px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
+  text-align: center;
+  color: #1e3460;
+}
+
+.days-of-week-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  left: 16px;
+  bottom: 0;
+  height: 1px;
+  background-color: #1e3460;
+}
+
+/* .week-of-month-wrapper {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+} */
+
+.days-of-month-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+
+
+
+
+.day-of-week--current-day {
+  font-weight: 700;
+  color: #1e3460;
+}
+
+.day-of-week--previous-month,
+.day-of-week--next-month {
+  color: rgba(221, 221, 221, 0.6);
+}
+
+.day-of-week--selected-day {
+  background-color: rgba(221, 221, 221, 0.6);
+}
+
+.day-of-week {
+  display: flex;
+  flex-direction: column;
+  width: 51px;
+  height: 50px;
+  overflow-y: hidden;
+}
+
+.day-of-week--day {
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+.task-text-span-wrapper {
+  margin-right: auto;
+  font-size: 8px;
+  line-height: 8px;
+  color: #1e3460;
+}
+
+.overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.overlay--show {
+  display: flex;
+}
+
+.input-field {
+  height: 30px;
+  margin-right: 30px;
+  padding: 0 10px;
+  border-radius: 16px;
+  border: 0;
+  outline: none;
+}
+
+.save-task-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  font-size: 16px;
+  color: #1e3460;
+  font-weight: 700;
+  background-color: #f87072;
+}
+
+.save-task-button:active {
+  background-color: #1e3460;
+  color: #f87072;
+}
+
+.close-overlay-button {
+  position: absolute;
+  top: 240px;
+  right: 44px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url('images/cross.svg');
+  background-repeat: no-repeat;
+}
+
+
+
+.days-of-month-wrapper,
+.week-of-month-wrapper,
+.day-of-week,
+.day-of-week--day {
+  user-select: none;
+}
