@@ -32,7 +32,7 @@
     <div>
         <h1>Привет, это мое PWA!</h1>
         <p>Я могу работать в офлайн-режиме.</p>
-        <div class="status">Статус: <span id="status-message">Онлайн</span></div>
+        <div class="status">Статус: <span id="status-message">?</span></div>
     </div>
     <script>
         // Регистрация Service Worker
@@ -47,8 +47,8 @@
         }
     </script>
     <script>
-        const statusMessage = document.getElementById(status-message)
-        statusMessage.innerText = navigator.onLine
+        const statusMessage = document.getElementById("status-message")
+        statusMessage.textContent = navigator.onLine
     </script>
 </body>
 </html>
